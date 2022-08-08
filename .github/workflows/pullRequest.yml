@@ -3,23 +3,13 @@ name: Bare Minimum Requirements
 on: [push, pull_request]
 
 jobs:
-  job1:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Bare Minimum Requirements - test
+      - name: Bare Minimum Requirements
         uses: actions/setup-node@v1
         with:
           node-version: '16'
       - run: npm install
       - run: npm test
-  job2:
-    runs-on: ubuntu-latest
-    needs: job1
-    steps:
-      - uses: actions/checkout@v2
-      - name: Build
-        uses: actions/setup-node@v1
-        with:
-          node-version: '16'
-      - run: npm build
