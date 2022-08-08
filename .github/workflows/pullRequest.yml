@@ -17,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: job1
     steps:
+      - uses: actions/checkout@v2
       - name: Build
-
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16'
       - run: npm build
